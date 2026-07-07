@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeepSeek Price Clock - Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="options-container">
+      <header class="options-header">
+        <div class="options-logo-row">
+          <img src="deepseek-logo.svg" alt="DeepSeek" class="options-logo" />
+          <h1>Price Clock</h1>
+        </div>
+        <p class="subtitle">Extension Settings</p>
+      </header>
+
+      <form id="settingsForm" class="settings-form">
+        <!-- Notifications -->
+        <div class="setting-group">
+          <div class="setting-row toggle-row">
+            <div class="setting-info">
+              <label class="setting-label" for="notificationsEnabled">Notifications</label>
+              <span class="setting-desc"
+                >Receive alerts before peak pricing starts and when prices return to normal</span
+              >
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="notificationsEnabled" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Warning minutes -->
+        <div class="setting-group">
+          <div class="setting-row">
+            <div class="setting-info">
+              <label class="setting-label" for="warningMinutes">Warning time</label>
+              <span class="setting-desc">Minutes before peak pricing to show warning</span>
+            </div>
+            <div class="setting-input-wrapper">
+              <input type="number" id="warningMinutes" min="1" max="60" value="15" class="setting-input" />
+              <span class="setting-input-suffix">min</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timezone -->
+        <div class="setting-group">
+          <div class="setting-row">
+            <div class="setting-info">
+              <label class="setting-label" for="timezone">Timezone</label>
+              <span class="setting-desc">Your local timezone for pricing schedule</span>
+            </div>
+            <div class="setting-input-wrapper">
+              <select id="timezone" class="setting-select">
+                <option value="Asia/Manila">Asia/Manila (UTC+8)</option>
+                <option value="Asia/Tokyo">Asia/Tokyo (UTC+9)</option>
+                <option value="Asia/Shanghai">Asia/Shanghai (UTC+8)</option>
+                <option value="Asia/Seoul">Asia/Seoul (UTC+9)</option>
+                <option value="Asia/Singapore">Asia/Singapore (UTC+8)</option>
+                <option value="Asia/Hong_Kong">Asia/Hong_Kong (UTC+8)</option>
+                <option value="Asia/Taipei">Asia/Taipei (UTC+8)</option>
+                <option value="Asia/Kolkata">Asia/Kolkata (UTC+5:30)</option>
+                <option value="Asia/Dubai">Asia/Dubai (UTC+4)</option>
+                <option value="Australia/Sydney">Australia/Sydney (UTC+10/11)</option>
+                <option value="Pacific/Auckland">Pacific/Auckland (UTC+12/13)</option>
+                <option value="Europe/London">Europe/London (UTC+0/1)</option>
+                <option value="Europe/Berlin">Europe/Berlin (UTC+1/2)</option>
+                <option value="Europe/Paris">Europe/Paris (UTC+1/2)</option>
+                <option value="America/New_York">America/New_York (UTC-5/4)</option>
+                <option value="America/Chicago">America/Chicago (UTC-6/5)</option>
+                <option value="America/Denver">America/Denver (UTC-7/6)</option>
+                <option value="America/Los_Angeles">America/Los_Angeles (UTC-8/7)</option>
+                <option value="UTC">UTC</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Time format -->
+        <div class="setting-group">
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Time format</span>
+              <span class="setting-desc">Choose 12-hour or 24-hour display</span>
+            </div>
+            <div class="setting-radio-group">
+              <label class="radio-option">
+                <input type="radio" name="use24h" value="true" checked />
+                <span class="radio-label">24-hour</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="use24h" value="false" />
+                <span class="radio-label">12-hour</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- API Key -->
+        <div class="setting-group">
+          <div class="setting-row">
+            <div class="setting-info">
+              <label class="setting-label" for="apiKey">DeepSeek API Key</label>
+              <span class="setting-desc">Optional. Enter your API key to check your balance</span>
+            </div>
+            <div class="setting-input-wrapper">
+              <input type="password" id="apiKey" placeholder="sk-..." class="setting-input" style="width: 200px;" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Schedule preview -->
+        <div class="setting-group">
+          <div class="schedule-preview">
+            <span class="setting-label">Today's schedule</span>
+            <div class="schedule-table">
+              <div class="schedule-row">
+                <span class="schedule-time">00:00 – 09:00</span>
+                <span class="schedule-status normal">Normal price</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-time">09:00 – 12:00</span>
+                <span class="schedule-status peak">2× peak price</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-time">12:00 – 14:00</span>
+                <span class="schedule-status normal">Normal price</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-time">14:00 – 18:00</span>
+                <span class="schedule-status peak">2× peak price</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-time">18:00 – 00:00</span>
+                <span class="schedule-status normal">Normal price</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save Settings</button>
+          <button type="button" id="resetDefaults" class="btn btn-secondary">Reset to Defaults</button>
+        </div>
+
+        <div id="saveStatus" class="save-status"></div>
+      </form>
+    </div>
+
+    <script src="options.js"></script>
+  </body>
+</html>

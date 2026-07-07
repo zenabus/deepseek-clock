@@ -1,0 +1,319 @@
+/* DeepSeek Price Clock - Options/Settings Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.options-container {
+  width: 100%;
+  max-width: 540px;
+}
+
+.options-header {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.options-logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.options-logo {
+  width: 28px;
+  height: 28px;
+}
+
+.options-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #89b4fa;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #6c7086;
+}
+
+/* Settings groups */
+.setting-group {
+  background: #181825;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.setting-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.setting-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #cdd6f4;
+  margin-bottom: 2px;
+}
+
+.setting-desc {
+  display: block;
+  font-size: 11px;
+  color: #6c7086;
+  line-height: 1.4;
+}
+
+/* Toggle switch */
+.toggle-row {
+  align-items: flex-start;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #45475a;
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #cdd6f4;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.toggle input:checked + .toggle-slider {
+  background-color: #10b981;
+}
+
+.toggle input:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+/* Input fields */
+.setting-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.setting-input {
+  width: 60px;
+  padding: 6px 8px;
+  background: #313244;
+  border: 1px solid #45475a;
+  border-radius: 6px;
+  color: #cdd6f4;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.setting-input:focus {
+  border-color: #89b4fa;
+}
+
+.setting-input-suffix {
+  font-size: 12px;
+  color: #6c7086;
+}
+
+/* Select dropdown */
+.setting-select {
+  padding: 6px 10px;
+  background: #313244;
+  border: 1px solid #45475a;
+  border-radius: 6px;
+  color: #cdd6f4;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+  min-width: 180px;
+  transition: border-color 0.2s;
+}
+
+.setting-select:focus {
+  border-color: #89b4fa;
+}
+
+/* Radio group */
+.setting-radio-group {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 4px 10px;
+  background: #313244;
+  border-radius: 6px;
+  border: 1px solid #45475a;
+  transition: border-color 0.2s;
+}
+
+.radio-option:has(input:checked) {
+  border-color: #89b4fa;
+  background: #313244;
+}
+
+.radio-option input {
+  accent-color: #89b4fa;
+}
+
+.radio-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #cdd6f4;
+}
+
+/* Schedule preview */
+.schedule-preview .setting-label {
+  margin-bottom: 10px;
+}
+
+.schedule-table {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.schedule-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.schedule-row:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.schedule-time {
+  font-variant-numeric: tabular-nums;
+  color: #a6adc8;
+  font-weight: 500;
+}
+
+.schedule-status {
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.schedule-status.normal {
+  color: #34d399;
+}
+
+.schedule-status.peak {
+  color: #f87171;
+}
+
+/* Form actions */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    opacity 0.2s;
+}
+
+.btn-primary {
+  background: #89b4fa;
+  color: #1e1e2e;
+}
+
+.btn-primary:hover {
+  background: #74c7ec;
+}
+
+.btn-secondary {
+  background: #313244;
+  color: #cdd6f4;
+}
+
+.btn-secondary:hover {
+  background: #45475a;
+}
+
+/* Save status message */
+.save-status {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  min-height: 20px;
+}
+
+.save-status.success {
+  color: #34d399;
+}
+
+.save-status.error {
+  color: #f87171;
+}

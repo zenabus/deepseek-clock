@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeepSeek Price Clock</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="popup-container">
+      <header class="popup-header">
+        <img src="deepseek-logo.svg" alt="DeepSeek" class="popup-logo" />
+        <h1>Price Clock</h1>
+      </header>
+
+      <section class="status-section">
+        <div class="current-time" id="countdown">--:--</div>
+        <div class="status-badge" id="statusBadge">Loading...</div>
+      </section>
+
+      <section class="info-section">
+        <div class="info-row">
+          <span class="info-label">Next change</span>
+          <span class="info-value" id="nextChangeTime">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Time zone</span>
+          <span class="info-value" id="currentTimezone">—</span>
+        </div>
+        <div class="info-row" id="balanceRow" style="display: none;">
+          <span class="info-label">API Balance</span>
+          <span class="info-value" id="apiBalance">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Status</span>
+          <span class="info-value" id="statusLabel">—</span>
+        </div>
+      </section>
+
+      <section class="chart-section" id="chartSection" style="display: none;">
+        <span class="info-label" style="display: block; margin-bottom: 8px;">7-Day Spending</span>
+        <div id="usageChart" class="usage-chart"></div>
+      </section>
+
+      <footer class="popup-footer">
+        <a href="#" id="openSettings">Settings</a>
+      </footer>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
