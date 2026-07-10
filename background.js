@@ -13,6 +13,10 @@ import {
   getNextPeakStart,
 } from "./pricing.js";
 
+if (typeof browser === "undefined") {
+  globalThis.browser = chrome;
+}
+
 const DEFAULT_SETTINGS = {
   notificationsEnabled: true,
   warningMinutes: 15,
@@ -34,9 +38,9 @@ async function loadSettings() {
 
 async function updateIcon(status) {
   const badgeTextMap = {
-    normal: "",
-    peak: "2×",
-    soon: "Soon",
+    normal: "✅",
+    peak: "🚨",
+    soon: "⏳",
   };
   await browser.action.setBadgeText({ text: badgeTextMap[status] || "" });
 

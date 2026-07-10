@@ -4,6 +4,10 @@
  * Manages the settings page: load, save, and reset settings.
  */
 
+if (typeof browser === "undefined") {
+  globalThis.browser = chrome;
+}
+
 const DEFAULT_SETTINGS = {
   notificationsEnabled: true,
   warningMinutes: 15,

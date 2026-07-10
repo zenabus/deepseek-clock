@@ -5,6 +5,10 @@
  * Refreshes every second while open.
  */
 
+if (typeof browser === "undefined") {
+  globalThis.browser = chrome;
+}
+
 const DEFAULT_SETTINGS = {
   notificationsEnabled: true,
   warningMinutes: 15,
